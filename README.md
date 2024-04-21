@@ -23,7 +23,7 @@ This project uses deep learning and computer vision techniques to accurately det
 ### Prerequisites
 Install Python 3.x and pip. Then, install the required packages:
 ```bash
-pip install tensorflow keras opencv-python-headless streamlit imutils numpy
+pip install tensorflow keras opencv-python streamlit imutils numpy
 ```
 
 ### Training the Model
