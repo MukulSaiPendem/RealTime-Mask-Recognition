@@ -100,7 +100,7 @@ print(classification_report(Y_test.argmax(axis=1), predictions, target_names=enc
 
 # Save the model
 print("[INFO] Saving the model...")
-complete_model.save("mask_detection_model.h5", save_format="h5")
+complete_model.save("mask_detector.keras")
 
 # Plotting training results
 epochs_range = training_epochs
