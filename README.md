@@ -46,6 +46,10 @@ Use the Streamlit interface to start your webcam and monitor real-time facemask 
 ## Contributions
 We encourage contributions to this project. Please fork the repository, make your changes, and submit a pull request for review.
 
+## References
+1. Alturki, R., Alharbi, M., AlAnzi, F., & Albahli, S. (2022). Deep learning techniques for detecting and recognizing face masks: A survey. Frontiers in Public Health, 10. https://doi.org/10.3389/fpubh.2022.955332
+2. Face mask detection. (2020, May 22). Kaggle. https://www.kaggle.com/datasets/andrewmvd/face-mask-detection
+
 ## License
 MIT License
 
