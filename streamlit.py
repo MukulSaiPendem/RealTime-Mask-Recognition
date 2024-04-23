@@ -5,6 +5,18 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 import imutils
+import requests
+import tempfile
+
+def download_model(url):
+    r = requests.get(url, allow_redirects=True)
+    if r.status_code == 200:
+        # Save the file in a temporary file
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.caffemodel' if '.caffemodel' in url else '.keras')
+        temp_file.write(r.content)
+        temp_file.flush()
+        return temp_file.name
+    return None
 
 def analyze_face_mask_presence(video_frame, detection_network, classification_network):
     # Determine frame dimensions and prepare a blob
@@ -51,6 +63,16 @@ def analyze_face_mask_presence(video_frame, detection_network, classification_ne
     return face_locations, mask_predictions
 
 def main():
+
+    # URLs of the model files on GitHub
+    github_url_detection_model = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/deploy.prototxt.txt'
+    github_url_weights = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/res10_300x300_ssd_iter_140000.caffemodel'
+    github_url_mask_model = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/mask_detector.keras'
+
+    # Download models
+    path_to_detection_model = download_model(github_url_detection_model)
+    path_to_weights = download_model(github_url_weights)
+    mask_detection_model_path = download_model(github_url_mask_model)
 
     # Load face detection model
     path_to_detection_model = r"C:\Users\pende\DSEM\Capstone\deploy.prototxt.txt"
