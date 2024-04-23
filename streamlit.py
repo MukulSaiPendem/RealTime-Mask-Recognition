@@ -65,7 +65,7 @@ def analyze_face_mask_presence(video_frame, detection_network, classification_ne
 def main():
 
     # URLs of the model files on GitHub
-    github_url_detection_model = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/deploy.prototxt.txt'
+    github_url_detection_model = 'https://github.com/your_repo/path/deploy.prototxt.txt'
     github_url_weights = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/res10_300x300_ssd_iter_140000.caffemodel'
     github_url_mask_model = 'https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git/mask_detector.keras'
 
@@ -75,12 +75,12 @@ def main():
     mask_detection_model_path = download_model(github_url_mask_model)
 
     # Load face detection model
-    path_to_detection_model = r"C:\Users\pende\DSEM\Capstone\deploy.prototxt.txt"
-    path_to_weights = r"C:\Users\pende\DSEM\Capstone\res10_300x300_ssd_iter_140000.caffemodel"
+    # path_to_detection_model = r"C:\Users\pende\DSEM\Capstone\deploy.prototxt.txt"
+    # path_to_weights = r"C:\Users\pende\DSEM\Capstone\res10_300x300_ssd_iter_140000.caffemodel"
     face_detection_network = cv2.dnn.readNet(path_to_detection_model, path_to_weights)
 
     # Load the classification model for masks
-    mask_detection_model_path = './mask_detector.keras'
+    # mask_detection_model_path = './mask_detector.keras'
     mask_classification_network = load_model(mask_detection_model_path)
 
     app_interface.title('Real-Time Face Mask Detection')
