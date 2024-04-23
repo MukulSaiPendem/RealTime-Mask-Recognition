@@ -1,6 +1,6 @@
-streamlit==1.15.0
-opencv-python-headless
-numpy==1.23.1
+streamlit
+opencv-python
+numpy
 tensorflow
-imutils==0.5.4
+imutils
 altair
