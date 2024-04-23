@@ -3,3 +3,4 @@ opencv-python
 numpy==1.23.1
 tensorflow
 imutils==0.5.4
+altair
