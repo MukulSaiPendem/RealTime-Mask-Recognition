@@ -13,7 +13,7 @@ This project implements a real-time face mask detection system using deep learni
 
 ## Repository Structure 📂
 
-
+```
 RealTime-Mask-Recognition/
 │
 ├── data/                         # Dataset and data related utilities 📦.
@@ -37,7 +37,7 @@ RealTime-Mask-Recognition/
 ├── LICENSE                                  # License file to define the terms under which this project is shared.
 ├── README.md                     # Project description file 📝.
 └── requirements.txt              # All necessary libraries for the project 📚.
-
+```
 
 ## Installation and Setup 🛠️
 
