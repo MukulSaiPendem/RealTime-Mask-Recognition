@@ -1,74 +1,73 @@
-# Face Mask Recognition Project
 
-## Introduction
-This project uses deep learning and computer vision techniques to accurately detect facemasks on individuals in real-time. It features a model training component and a web application for model deployment.
+# Real-Time Mask Recognition 🎭
 
-## Project Structure
-- **train.py**: This script handles the training of a deep learning model based on the MobileNetV2 architecture, adapted for facemask detection. It includes preprocessing steps like image data augmentation to enhance the model's robustness to variations in new images.
-- **streamlit.py**: This Streamlit application provides a user interface for real-time facemask detection using a webcam. It integrates OpenCV for face detection and TensorFlow for mask detection based on the trained model.
+## Project Overview 🌟
 
-### Detailed Breakdown
-#### train.py
-- **Image Preprocessing**: Uses `ImageDataGenerator` from Keras for real-time data augmentation, improving generalization by introducing random transformations on training images.
-- **Model Setup**: Constructs a model using the MobileNetV2 architecture pre-trained on ImageNet, adding custom top layers to specifically suit the mask/no-mask binary classification.
-- **Training Process**: Configures training parameters such as the optimizer, loss function, and learning rate. Executes training over several epochs, saving the best model based on validation accuracy.
+This project implements a real-time face mask detection system using deep learning 🧠. It leverages a convolutional neural network to classify faces detected in a webcam feed as either 'with_mask' 😷 or 'without_mask' 😶. The system is built using PyTorch for model training and evaluation, and Streamlit for deploying a user-friendly interface.
 
-#### streamlit.py
-- **Streamlit Setup**: Initializes a Streamlit web interface for user interactions.
-- **Video Processing**: Utilizes OpenCV to capture video frames from a webcam. Implements real-time face detection using a pre-trained deep learning model.
-- **Mask Detection**: Each detected face is then processed through the trained facemask classifier to determine whether it is covered by a mask.
-- **UI Display**: Results are dynamically displayed on the Streamlit interface, showing the video feed with bounding boxes around faces colored based on mask detection results (e.g., green for mask, red for no mask).
+## Features 🚀
 
-## Setup Instructions
-### Prerequisites
-Install Python 3.x and pip. Then, install the required packages:
-```bash
-pip install tensorflow keras opencv-python streamlit imutils numpy
-```
+- **Real-Time Detection**: Uses webcam feed for on-the-fly face mask detection 🎥.
+- **Deep Learning Model**: Built on PyTorch, utilizing CNNs for high accuracy 📈.
+- **Streamlit Application**: Provides an interactive web interface for easy usage 🖥️.
 
-### Training the Model
-To train the facemask detection model, place your dataset in the correct format and run:
-```bash
-python train.py
-```
-Make sure your dataset is structured with directories labeled 'mask' and 'no mask' for training images.
+## Repository Structure 📂
 
-### Running the Streamlit Application
-Launch the application with:
-```bash
-streamlit run streamlit.py
-```
-Navigate to the provided local URL in your web browser to interact with the application.
 
-## Usage
-Use the Streamlit interface to start your webcam and monitor real-time facemask detection. The application will display the video with live annotations showing whether individuals are wearing masks.
+RealTime-Mask-Recognition/
+│
+├── data/                         # Dataset and data related utilities 📦.
+│   └── face-mask-dataset.zip     # Zipped dataset for training.
+│
+├── models/                       # Trained model weights and architecture 🔍.
+│   ├── best_model.pth            # Trained model weights.
+│   └── best_model_cnn_deep.pth   # Enhanced CNN model weights.
+│
+├── outputs/                      # Logs and output files from training sessions 📈.
+│   └── metrics.json
+│
+├── src/                          # Source code for training and inference scripts 💻.
+│   ├── Face_Mask_Detection_Training.ipynb   # Training Notebook.
+│   └── streamlit.py                         # Stream app.
+│
+├── utils/                                   # Utility scripts for data manipulation and other tasks 🔧.
+│   └── haarcascade_frontalface_default.xml
+│
+├── .gitignore                               # Specifies intentionally untracked files to ignore 🚫.
+├── LICENSE                                  # License file to define the terms under which this project is shared.
+├── README.md                     # Project description file 📝.
+└── requirements.txt              # All necessary libraries for the project 📚.
 
-## Contributions
-We encourage contributions to this project. Please fork the repository, make your changes, and submit a pull request for review.
 
-## References
-1. Alturki, R., Alharbi, M., AlAnzi, F., & Albahli, S. (2022). Deep learning techniques for detecting and recognizing face masks: A survey. Frontiers in Public Health, 10. https://doi.org/10.3389/fpubh.2022.955332
-2. Face mask detection. (2020, May 22). Kaggle. https://www.kaggle.com/datasets/andrewmvd/face-mask-detection
+## Installation and Setup 🛠️
 
-## License
-MIT License
+To set up and run this project, follow these steps:
 
-Copyright (c) 2024 MukulSaiPendem
+1. **Clone the repository**:
+    ```
+    git clone https://github.com/your-username/RealTime-Mask-Recognition.git
+    cd RealTime-Mask-Recognition
+    ```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+2. **Install dependencies**:
+    ```
+    pip install -r requirements.txt
+    ```
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+3. **Run the Streamlit application**:
+    ```
+    streamlit run src/app.py
+    ```
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## Usage 📖
+
+To start the mask detection, simply run the Streamlit app and allow webcam access. The system will then detect and display the mask status in real-time.
+
+## Contributions and Feedback 🤝
+
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](link-to-issues). If you want to contribute, please open a pull request.
+
+## License 📄
+
+This project is [MIT licensed](./LICENSE).
+

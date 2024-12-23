@@ -1,7 +1,10 @@
-streamlit
-opencv-python-headless
+
 numpy
-tensorflow
-imutils
-altair
-requests
+pandas
+torch>=1.7.1
+torchvision>=0.8.2
+opencv-python-headless  # Use headless version to avoid GUI conflicts on servers
+Pillow
+streamlit
+matplotlib  # If you need to plot in Streamlit or during training
+tqdm  # For progress bars during training
